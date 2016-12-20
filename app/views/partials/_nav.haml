@@ -1,0 +1,18 @@
+%header.mdl-layout__header.mdl-layout__header--scroll
+  .mdl-layout__header-row
+    %span.mdl-layout-title 
+      =link_to "FacilitoCo", root_path, :class => "white-text underline-none"
+    .mdl-layout-spacer
+    %nav.mdl-navigation.relative
+    -if user_signed_in?
+      #notifications
+      .right-space
+        =link_to "/notifications", :class => "circle red white-text", id: "notification", remote: true, data:{type:"script"} do
+          =current_user.notifications_count
+      =link_to current_user.username, user_path(current_user), :class => "mdl-navigation__link"
+      =link_to "Mis amigos", friendships_path, :class => "mdl-navigation__link"
+      =link_to "Cerrar sesion", destroy_user_session_path, method: :delete, :class => "mdl-navigation__link"
+.mdl-layout__drawer
+  %span.mdl-layout-title
+    =link_to "FacilitoCo", root_path, :class => "black-light-text underline-none"
+  %nav.mdl-navigation

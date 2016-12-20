@@ -1,0 +1,19 @@
+.top-space
+	.row.center-xs
+		.col-xs-8.col-md-10
+			.box
+				.row
+					.col-xs-10.col-sm-3.col-lg-2
+						.box
+							%ul.remove-bullet-paints.text-left
+								%li=link_to "Explorar","#"
+								%li=link_to "Sugerencias","#"
+					.col-sm.col-xs-10
+						.box
+							.white.large-padding
+								=render 'posts/form'
+							#posts
+								.data
+									=render @posts
+								#pagination
+									=will_paginate @posts

@@ -1,0 +1,5 @@
+%p
+	=notification.item.user.email
+	ahora es tu amigo
+	=link_to notification_path(id: notification.id,notification:{viewed: false}),method: :put do
+		&#9989
